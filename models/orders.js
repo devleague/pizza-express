@@ -27,13 +27,7 @@ orders.getAllPizzaOrders = function(req, res){
 };
 
 orders.createOrder = function(req, res){
-  var newOrder = new Order({
-    size: req.param('size'),
-    toppings: {
-      meats: req.param('meats'),
-      veggies: req.param('veggies')
-    }
-  });
+  var newOrder = new Order(req.body);
 
   newOrder.save(function (err){
     if (err) {
